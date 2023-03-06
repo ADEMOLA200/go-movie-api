@@ -1,0 +1,4 @@
+.env
+cicd/prod/bin/*
+cicd/test/bin/*
+pgdata

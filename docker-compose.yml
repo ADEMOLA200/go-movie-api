@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres_db:
+        condition: service_healthy
+    networks:
+      - default
+    healthcheck:
+      test: "exit 0"
+    ports:
+      - 3000:3000
+    environment:
+      - DB_HOST=host.docker.internal
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_NAME=movies-db
+  postgres_db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: movies-db
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: "exit 0"
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: "exit 0"
