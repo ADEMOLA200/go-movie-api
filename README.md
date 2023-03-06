@@ -1,13 +1,10 @@
 ## Assessment
 
-### a very minimal movies api
+### A very minimal movies api
 
-## Documentation
-[HERE]()
+Documentation [HERE](https://documenter.getpostman.com/view/11688875/2s93JnVSsB)
 
-# USAGE
-
-run 
+start command
 ```shell
 docker-compose build && docker-compose up
 ```

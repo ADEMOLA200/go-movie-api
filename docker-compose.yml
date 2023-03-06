@@ -22,6 +22,7 @@ services:
       - DB_USER=postgres
       - DB_PASSWORD=password
       - DB_NAME=movies-db
+      - REDIS_URL=redis:6379
   postgres_db:
     image: postgres
     environment:
