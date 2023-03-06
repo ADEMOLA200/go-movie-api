@@ -21,6 +21,7 @@ type Config struct {
 	DbUser               string
 	DbPassword           string
 	DbName               string
+	RedisURL 						 string
 }
 
 func GetConfig() Config {
@@ -40,6 +41,7 @@ func defaultConfig() *Config {
 		DbUser:               os.Getenv("DB_USER"),
 		DbPassword:           os.Getenv("DB_PASSWORD"),
 		DbName:               os.Getenv("DB_NAME"),
+		RedisURL: 						os.Getenv("REDIS_URL"),
 	}
 }
 

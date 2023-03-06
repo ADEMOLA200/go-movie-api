@@ -12,7 +12,7 @@ import (
 func main() {
 	// open connection to redis
 	redisCLient := redis.NewClient(&redis.Options{
-		Addr: "redis:6379",
+		Addr: app.GetConfig().RedisURL,
 	})
 	defer redisCLient.Close()
 	// test redis connection
